@@ -4,7 +4,7 @@ from torchvision import transforms
 from torch.utils.data import DataLoader,random_split
 
 class DatasetLoader:
-    def __init__(self,root,batch_size=64):
+    def __init__(self,root,batch_size):
         self.root=root
         self.batch_size=batch_size
         self.transform=transforms.Compose([
@@ -18,7 +18,7 @@ class DatasetLoader:
         train_path=self.root+"/train"
         test_path=self.root+"/val"
         train_val_dataset=torchvision.datasets.ImageFolder(root=train_path,transform=self.transform)
-        train_size=int(0.9*len(train_val_dataset))
+        train_size=int(0.8*len(train_val_dataset))
         val_size=len(train_val_dataset)-train_size
         train_dataset,val_dataset=random_split(train_val_dataset,[train_size, val_size])
         test_dataset=torchvision.datasets.ImageFolder(root=test_path,transform=self.transform)

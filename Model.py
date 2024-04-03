@@ -81,9 +81,6 @@ class CNN(nn.Module):
         self.maxPool5=nn.MaxPool2d(kernel_size=self.filterSize,stride=self.stride,padding=self.padding)
         self.widhtOfImage=((self.widhtOfImage-self.filterSize+2*self.padding)//self.stride)+1
 
-        self.inputDepth=self.outputDepth
-        self.outputDepth=self.filterSizeCalculator(self.inputDepth,self.filterOrganization)
-
         self.flatten=nn.Flatten()
 
         self.dropout=nn.Dropout(self.dropoutProb)
@@ -95,10 +92,11 @@ class CNN(nn.Module):
     def filterSizeCalculator(self,filterSize,filterOrganization):
         if(filterOrganization=="same"):
             return filterSize
-        if(filterOrganization=="half"):
+        if(filterOrganization=="half" and filterSize>1):
             return filterSize//2
-        if(filterOrganization=="double"):
+        if(filterOrganization=="double" and filterSize<=512):
             return filterSize*2
+        return filterSize
     
     def activationFunction(self,activation):
         if activation=="ReLU":
