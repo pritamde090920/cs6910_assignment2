@@ -44,6 +44,9 @@ python train_parta.py --root <absoulte_path_of_dataset>
 ```
 Same needs to be done for train_partb.py
 
+#### Note
+Do not give the paths for the train and val folders seperately. Just pass the absolute path of the root directory of the dataset, i.e. the directory ```inaturalist_12K``` as the argument. The train and val folders will be seperately handled inside the code itself.
+
 
 ## Part A
 Make sure to change the directory by the command
