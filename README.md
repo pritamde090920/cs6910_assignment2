@@ -40,7 +40,7 @@ The dataset needs to be placed in the home directory, i.e. in the cs6910_assignm
 If the directory is placed somewhere else, then to execute the files related to this project, you need to specify the absolute path of the root of the dataset.
 For example, if you want to run train_parta.py with the dataset located somewhere else other than the home directory then you need to do
 ```
-python train_parta.py --root <absoult_path_of_dataset>
+python train_parta.py --root <absoulte_path_of_dataset>
 ```
 Same needs to be done for train_partb.py
 
@@ -106,7 +106,7 @@ By the above command, the model will run with the default configuration.\
 To customize the run, you need to specify the parameters like ```python train_partb.py <*args>```\
 For example,
 ```
-python train_partb.py -e 20 -b 64 --freeze 10 
+python train_partb.py -e 20 -b 64 --freezed 10 
 ```
 
 The arguments supported are :
